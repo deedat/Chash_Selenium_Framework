@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationFrameWork", "AutomationFrameWork\AutomationFrameWork.csproj", "{5A954925-4907-4B20-9657-C9360D87007C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestEmployee", "UnitTestEmployee\UnitTestEmployee.csproj", "{DA9036DE-03A8-4D9C-B48E-2A743CB9434C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5A954925-4907-4B20-9657-C9360D87007C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A954925-4907-4B20-9657-C9360D87007C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A954925-4907-4B20-9657-C9360D87007C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA9036DE-03A8-4D9C-B48E-2A743CB9434C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA9036DE-03A8-4D9C-B48E-2A743CB9434C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA9036DE-03A8-4D9C-B48E-2A743CB9434C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA9036DE-03A8-4D9C-B48E-2A743CB9434C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
