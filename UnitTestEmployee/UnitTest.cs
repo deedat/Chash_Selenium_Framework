@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using UnitTestEmployee.Pages;
 
 namespace UnitTestEmployee
@@ -9,7 +10,7 @@ namespace UnitTestEmployee
     [TestClass]
     public class UnitTest
     {
-        private IWebDriver _driver;
+        private RemoteWebDriver _driver;
         string url = "http://eaapp.somee.com/";
 
         [TestMethod]
