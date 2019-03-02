@@ -1,4 +1,5 @@
 ﻿using System;
+using AutomationFrameWork.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -10,30 +11,37 @@ namespace UnitTestEmployee
     [TestClass]
     public class UnitTest
     {
-        private RemoteWebDriver _driver;
+        //private RemoteWebDriver _driver;
         string url = "http://eaapp.somee.com/";
 
         [TestMethod]
         public void TestMethod1()
         {
-            _driver = new ChromeDriver();
-            _driver.Navigate().GoToUrl(url);
-            this.Login();
+            DriverContext.OneGlobalDriver = new ChromeDriver();
+            DriverContext.OneGlobalDriver.Navigate().GoToUrl(url);
+
+
+            LoginPage loginPage = new LoginPage();
+            loginPage.ClickLoginLink();
+            loginPage.Login("admin", "password");
+
+            EmplyeePage emplyeePage =  loginPage.ClickEmployeeList();
+            emplyeePage.ClickCreateNew();
+
+
+
         }
 
-        public void Login()
-        {
-            LoginPage loginPage = new LoginPage(_driver);
+        
+            
 
 
 
-            loginPage.LinkLogin.Click();
-            loginPage.TxtUserName.SendKeys("admin");
-            loginPage.TxtPassword.SendKeys("password");
-            loginPage.TxtPassword.Submit();
+            
+            
            // _driver.FindElement(By.CssSelector("#loginForm > form > div:nth-child(5) > div > input")).Submit();
            
 
-        }
+        
     }
 }

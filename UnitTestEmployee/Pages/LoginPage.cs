@@ -10,19 +10,54 @@ using System.Threading.Tasks;
 
 namespace UnitTestEmployee.Pages
 {
-    class LoginPage:BasePage
+
+    class LoginPage : BasePage
     {
-        
-        
-        public LoginPage(RemoteWebDriver driver):base(driver)
+
+
+        public LoginPage()
         {
-             
+
+        }
+        // insted of using "DriverOfThisPage" which in comment in BasePage class, we use "DriverContext.OneGlobalDriver"
+        public IWebElement LinkLogin => DriverContext.OneGlobalDriver.FindElement(By.Id("loginLink"));
+
+        public IWebElement TxtUserName => DriverContext.OneGlobalDriver.FindElement(By.Id("UserName"));
+
+
+        public IWebElement TxtPassword => DriverContext.OneGlobalDriver.FindElement(By.Id("Password"));
+
+        public IWebElement BtnSubmit => DriverContext.OneGlobalDriver.FindElement(By.XPath("//*[@id=\"loginForm\"]/form/div[4]/div/input"));
+
+        public IWebElement LinkEmployeeList => DriverContext.OneGlobalDriver.FindElement(By.XPath("/html/body/div[1]/div/div[2]/ul/li[3]/a"));
+        public IWebElement TxtSearchTerm => DriverContext.OneGlobalDriver.FindElement(By.Name("searchTerm"));
+
+
+
+
+        public void ClickLoginLink()
+        {
+            LinkLogin.Click();
         }
 
-        public IWebElement LinkLogin => Driver.FindElement(By.Id("loginLink"));
-        public IWebElement TxtUserName => Driver.FindElement(By.Id("UserName"));
-        public IWebElement TxtPassword => Driver.FindElement(By.Id("Password"));
-        public IWebElement BtnSubmit => Driver.FindElement(By.XPath("//*[@id=\"loginForm\"]/form/div[4]/div/input"));
+        public void Login(string usrname, string password)
+        {
+            TxtUserName.SendKeys(usrname);
+            TxtPassword.SendKeys(password);
+            TxtPassword.Submit();
+        }
+
+        public EmplyeePage ClickEmployeeList()
+        {
+            LinkEmployeeList.Click();
+            return new EmplyeePage();
+        }
+
+        public void EnterTerm(string term)
+        {
+            TxtSearchTerm.SendKeys(term);
+        }
+
 
         //[FindsBy(How = How.Id, Using = "loginLink")]
         //public IWebElement LinkLogin { get; set; }

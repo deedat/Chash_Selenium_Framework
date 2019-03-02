@@ -5,15 +5,10 @@ namespace AutomationFrameWork.Base
 {
     public class DriverContext
     {
+        // since the driver is the same betwwen all the page, then we declared it as static
+        public static RemoteWebDriver OneGlobalDriver { get; set; }
+        
 
-        private static RemoteWebDriver _driver;
-
-        public RemoteWebDriver Driver
-        {
-            get =>  _driver; 
-       
-            set  => _driver = value;
-        }
 
     }
 }

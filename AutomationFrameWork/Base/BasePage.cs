@@ -8,11 +8,11 @@ using System.Text;
 namespace AutomationFrameWork.Base
 {
     public abstract class BasePage
-    {
-        public RemoteWebDriver Driver { get; set; }
-        public BasePage(RemoteWebDriver driver)
+    {   
+       // public RemoteWebDriver DriverOfThisPage { get; set; }
+        public BasePage()
         {
-            this.Driver = driver;
+           //  this.DriverOfThisPage = DriverContext.OneGlobalDriver;
         }
     }
 }
