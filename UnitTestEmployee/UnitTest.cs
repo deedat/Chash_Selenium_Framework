@@ -9,7 +9,7 @@ using UnitTestEmployee.Pages;
 namespace UnitTestEmployee
 {
     [TestClass]
-    public class UnitTest
+    public class UnitTest : Base
     {
         //private RemoteWebDriver _driver;
         string url = "http://eaapp.somee.com/";
@@ -21,12 +21,15 @@ namespace UnitTestEmployee
             DriverContext.OneGlobalDriver.Navigate().GoToUrl(url);
 
 
-            LoginPage loginPage = new LoginPage();
-            loginPage.ClickLoginLink();
-            loginPage.Login("admin", "password");
+            LoginPage page = new LoginPage();
+            page.ClickLoginLink();
+            page.Login("admin", "password");
 
-            EmplyeePage emplyeePage =  loginPage.ClickEmployeeList();
-            emplyeePage.ClickCreateNew();
+            //EmplyeePage emplyeePage =  loginPage.ClickEmployeeList();
+            //emplyeePage.ClickCreateNew();
+
+            CurrentPage = page.ClickEmployeeList();
+            ((EmplyeePage)CurrentPage).ClickCreateNew();
 
 
 
