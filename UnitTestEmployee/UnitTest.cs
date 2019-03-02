@@ -17,21 +17,26 @@ namespace UnitTestEmployee
         [TestMethod]
         public void TestMethod1()
         {
-            DriverContext.OneGlobalDriver = new ChromeDriver();
-            DriverContext.OneGlobalDriver.Navigate().GoToUrl(url);
+             DriverContext.OneGlobalDriver = new ChromeDriver();
+             DriverContext.OneGlobalDriver.Navigate().GoToUrl(url);
+            //
+            //
+            // LoginPage page = new LoginPage();
+            // page.ClickLoginLink();
+            // page.Login("admin", "password");
+            //
+            // //EmplyeePage emplyeePage =  loginPage.ClickEmployeeList();
+            // //emplyeePage.ClickCreateNew();
+            //
+            // CurrentPage = page.ClickEmployeeList();
+            // ((EmplyeePage)CurrentPage).ClickCreateNew();
 
-
-            LoginPage page = new LoginPage();
+            // CurrentPage page = GetInstance<LoginPage>;
+            CurrentPage  = GetInstance<LoginPage>();
+            LoginPage page =  CurrentPage.As<LoginPage>();
             page.ClickLoginLink();
             page.Login("admin", "password");
-
-            //EmplyeePage emplyeePage =  loginPage.ClickEmployeeList();
-            //emplyeePage.ClickCreateNew();
-
-            CurrentPage = page.ClickEmployeeList();
-            ((EmplyeePage)CurrentPage).ClickCreateNew();
-
-
+            
 
         }
 

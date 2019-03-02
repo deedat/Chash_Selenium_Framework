@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AutomationFrameWork.Base
 {
-    public abstract class BasePage 
+    public abstract class BasePage : Base 
     {
         
         // public RemoteWebDriver DriverOfThisPage { get; set; }
