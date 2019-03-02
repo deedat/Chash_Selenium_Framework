@@ -4,7 +4,11 @@ using System.Text;
 
 namespace AutomationFrameWork.Base
 {
-    class BasePage
+    public abstract class BasePage
     {
+        public BasePage()
+        {
+           
+        }
     }
 }

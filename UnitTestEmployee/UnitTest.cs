@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using UnitTestEmployee.Pages;
 
 namespace UnitTestEmployee
 {
@@ -15,18 +16,22 @@ namespace UnitTestEmployee
         public void TestMethod1()
         {
             _driver = new ChromeDriver();
+            _driver.Navigate().GoToUrl(url);
             this.Login();
         }
 
         public void Login()
         {
+            LoginPage loginPage = new LoginPage(_driver);
 
-            _driver.Navigate().GoToUrl(url);
-            _driver.FindElement(By.Id("loginLink")).Click();
-            _driver.FindElement(By.Id("UserName")).SendKeys("admin");
-            _driver.FindElement(By.Id("Password")).SendKeys("password");
-            _driver.FindElement(By.CssSelector("#loginForm > form > div:nth-child(5) > div > input")).Submit();
 
+
+            loginPage.LinkLogin.Click();
+            loginPage.TxtUserName.SendKeys("admin");
+            loginPage.TxtPassword.SendKeys("password");
+            loginPage.TxtPassword.Submit();
+           // _driver.FindElement(By.CssSelector("#loginForm > form > div:nth-child(5) > div > input")).Submit();
+           
 
         }
     }
